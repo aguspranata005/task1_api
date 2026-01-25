@@ -128,8 +128,8 @@ func main() {
 		}
 	})
 
-	fmt.Println("Server berjalan di localhost:8080")
-	err := http.ListenAndServe(":8080", nil)
+	fmt.Println("Server berjalan di localhost:8081")
+	err := http.ListenAndServe(":8081", nil)
 
 	if err != nil {
 		fmt.Println("Gagal jalankan server")
