@@ -4,14 +4,15 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"os"
 	"strconv"
 	"strings"
 )
 
 type Barang struct {
-	ID          int    `json:"id"`
-	Nama        string `json:"name"`
-	Deskripsi 	string `json:"Deskripsi"`
+	ID        int    `json:"id"`
+	Nama      string `json:"name"`
+	Deskripsi string `json:"Deskripsi"`
 }
 
 var barang = []Barang{
@@ -75,6 +76,7 @@ func deleteBarang(w http.ResponseWriter, r *http.Request) {
 	id, err := strconv.Atoi(idStr)
 	if err != nil {
 		http.Error(w, "Produk ID tidak valid", http.StatusBadRequest)
+		return
 	}
 
 	for i, p := range barang {
@@ -83,7 +85,7 @@ func deleteBarang(w http.ResponseWriter, r *http.Request) {
 
 			w.Header().Set("Content-Type", "application/json")
 			json.NewEncoder(w).Encode(map[string]string{
-				"message" : "sukses dihapus",
+				"message": "sukses dihapus",
 			})
 			return
 		}
