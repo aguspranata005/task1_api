@@ -1,7 +1,7 @@
 package models
 
 type Barang struct {
-	ID        	int    `json:"id"`
-	Name      	string `json:"name"`
-	Description	string `json:"description"`
+	ID        		int    `json:"id"`
+	CategoryName	string `json:"category_name"`
+	Description		string `json:"description"`
 }
